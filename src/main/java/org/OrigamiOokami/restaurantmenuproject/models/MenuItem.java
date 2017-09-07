@@ -1,8 +1,6 @@
 package org.OrigamiOokami.restaurantmenuproject.models;
 
 
-import javax.validation.Valid;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -81,15 +79,13 @@ public class MenuItem extends AbstractEntity {
         return isNew;
     }
     private void setIsNew(LocalDateTime anItemDate) {
-        Boolean itemIsNew;
+        Boolean itemIsNew = true;
         Duration d = Duration.between(anItemDate, LocalDateTime.now());
         Duration dWeek = Duration.between(LocalDateTime.now().minusDays(7), LocalDateTime.now());
         if (d.toDays() > dWeek.toDays()){
             itemIsNew = false;
         }
-        else{
-            itemIsNew = true;
-        }
+
         isNew = itemIsNew;
     }
 

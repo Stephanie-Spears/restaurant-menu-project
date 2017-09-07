@@ -12,11 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.Date;
 
 /*
 * add datetime input in form field
@@ -25,7 +21,7 @@ import java.util.Date;
 
 @Controller
 @RequestMapping(value = "menu")
-public class MenuController {
+class MenuController {
 
     @RequestMapping(value = "")
     public String index(Model model){
@@ -41,6 +37,8 @@ public class MenuController {
         model.addAttribute("localDate", LocalDate.now());
 
         model.addAttribute("title", "Add Menu Item");
+
+/* need to be able to discard id incrementation before it gets added to menuList if object isn't validated(currently updates id on page redirect)--which is what should be happening...must be calling abstract unintentionally each time?*/
         model.addAttribute(new MenuItem());
         return "menu/add";
     }

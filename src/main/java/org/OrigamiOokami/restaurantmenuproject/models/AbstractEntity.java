@@ -6,16 +6,16 @@ abstract public class AbstractEntity {
     protected enum Category {APPETIZER, MAIN_COURSE, DESSERT}
 
 
-    public AbstractEntity() {
+    AbstractEntity() {
             this.itemId = getNextId();
         }
 
     public int getId() {
             return itemId;
         }
-    public static int index = 0;
+    private static int index = 0;
 
-    public static int getNextId() {
+    private static int getNextId() {
             return ++index;
         }
 
