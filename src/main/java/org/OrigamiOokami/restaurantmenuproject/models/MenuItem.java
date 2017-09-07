@@ -1,40 +1,64 @@
 package org.OrigamiOokami.restaurantmenuproject.models;
 
 
+import javax.validation.Valid;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.Month;
 
 public class MenuItem extends AbstractEntity {
-    enum Category {APPETIZER, MAIN_COURSE, DESSERT}
-
-//    private int id;
-//    static AtomicInteger nextId = new AtomicInteger();
 
 
+//
+//    public Category category;
+//    public Double price;
+//    public String description;
+//    public LocalDateTime itemDate;
+//    public Boolean isNew;
+
+    @NotNull
     private Category category;
+
+//    @Pattern(regexp = "[0-9]+([,.][0-9]{1,2})?")
+    @NotNull
     private Double price;
+
+
+    @NotNull
+    @Size(min=3, max=50)
+    @Pattern(regexp = "[a-zA-Z !,.:?]*")
     private String description;
+
+    @NotNull
     private LocalDateTime itemDate;
+
+    @NotNull
     private Boolean isNew;
 
 
-
-    MenuItem(){
+    public MenuItem(){
         super();
         this.category = Category.APPETIZER;
         this.price = 0.00;
         this.description = "Generic Item Description";
-        this.itemDate = LocalDateTime.now();
+//        this.itemDate = LocalDateTime.now();
+        this.itemDate = LocalDateTime.of(1989, Month.JULY, 29, 12, 59);
         setIsNew(itemDate);
-//        this.id = nextId.incrementAndGet();
     }
 
-    MenuItem(Category category, Double price, String description, LocalDateTime itemDate){
+    public MenuItem(Category category, Double price, String description, LocalDateTime itemDate){
         this();
         this.category = category;
         this.price = price;
         this.description = description;
-        this.itemDate = itemDate;
+//        this.itemDate = LocalDateTime.of(1989, Month.JULY, 29, 12, 59);
+        this.itemDate = LocalDateTime.now();
+
+//        this.itemDate = itemDate;
         setIsNew(itemDate);
     }
 
@@ -93,7 +117,7 @@ public class MenuItem extends AbstractEntity {
 
     @Override
     public String toString(){
-        return ("\nID: " + id + "\nCategory: " + category + "\nPrice: " + price + "\nDescription: " + description + "\nIs New: " + isNew + "\nItem Date: " + itemDate.getMonth() + " " + itemDate.getDayOfMonth() + ", " + itemDate.getYear() + " (" +  itemDate.getDayOfWeek() + ")\n");
+        return ("\nID: " + itemId + "\nCategory: " + category + "\nPrice: " + price + "\nDescription: " + description + "\nIs New: " + isNew + "\nItem Date: " + itemDate.getMonth() + " " + itemDate.getDayOfMonth() + ", " + itemDate.getYear() + " (" +  itemDate.getDayOfWeek() + ")\n");
     }
 
 
@@ -119,7 +143,7 @@ public class MenuItem extends AbstractEntity {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = itemId;
         result = 31 * result + category.hashCode();
         result = 31 * result + price.hashCode();
         result = 31 * result + description.hashCode();
