@@ -12,27 +12,27 @@
 <form method="post" th:object="${menuItem}">
 
     <div class="form-group has-success">
-        <label th:for="description">Description</label>
+        <label class="control-label" th:for="description">Description</label>
         <input class="form-control" th:field="*{description}" />
         <span th:errors="*{description}" class="error text-danger"></span>
     </div>
     <div class="form-group has-success">
-        <label th:for="price">Price</label>
+        <label class="control-label" th:for="price">Price</label>
         <input class="form-control" th:field="*{price}" />
         <span th:errors="*{price}" class="error text-danger"></span>
     </div>
 
-
     <!--set onclick type method to use current time setter-->
     <!--<div class="form-group has-success">-->
         <!--<label th:for="itemDate">Item Date</label>-->
-        <!--<input type="datetime-local" class="form-control" th:field="*{itemDate}" />-->
-        <!--<span th:errors="*{itemDate}" class="error text-danger"></span>-->
+        <!--<input type="date" class="form-control" th:field="${#dates.itemDate}"/>-->
+        <!--<span th:errors="${#dates.itemDate}" class="error text-danger"></span>-->
     <!--</div>-->
+
 
     <!--is the below formatted smoothly? anything unnecessary?-->
     <div class="form-group has-success">
-        <label for="Category">Item Category</label>
+        <label class="control-label" for="Category">Item Category</label>
         <select id="Category" th:field="*{Category}" th:remove="all-but-first">
             <option th:each="aCategory : *{Category.values()}" th:value="${aCategory}" th:text="${aCategory}">Item Category</option>
         </select>

@@ -1,7 +1,7 @@
 package org.OrigamiOokami.restaurantmenuproject.models;
 
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -11,7 +11,7 @@ public class Menu {
 //    private int newId = 0;
 
 //    private LocalDateTime menuDate;
-    private static LocalDateTime menuDate;
+    private static LocalDate menuDate;
 //    private ArrayList<MenuItem> menuList = new ArrayList<>();
 
     private static final ArrayList<MenuItem> menuList = new ArrayList<>();
@@ -20,7 +20,7 @@ public class Menu {
 
     private Menu(){
 //        super();
-        menuDate = LocalDateTime.now();
+        menuDate = LocalDate.now();
 //        this.id = newId;
     }
     public Menu(MenuItem... items){

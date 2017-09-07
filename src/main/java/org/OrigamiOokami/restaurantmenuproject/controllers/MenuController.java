@@ -17,6 +17,7 @@ import java.time.LocalDate;
 /*
 * add datetime input in form field
 * id increments twice
+* add view of when the menu itself was last updated
 * */
 
 @Controller

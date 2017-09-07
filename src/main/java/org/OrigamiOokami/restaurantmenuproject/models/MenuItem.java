@@ -1,10 +1,14 @@
 package org.OrigamiOokami.restaurantmenuproject.models;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 
@@ -23,8 +27,9 @@ public class MenuItem extends AbstractEntity {
     @Pattern(regexp = "[a-zA-Z !,.:?]*")
     private String description;
 
+    //    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
-    private LocalDateTime itemDate;
+    private LocalDate itemDate;
 
     @NotNull
     private Boolean isNew;
@@ -34,21 +39,20 @@ public class MenuItem extends AbstractEntity {
     public MenuItem(){
         super();
         this.category = Category.APPETIZER;
-        this.price = 0.00;
+        this.price = 9.99;
         this.description = "";
-//        this.itemDate = LocalDateTime.now();
-        this.itemDate = LocalDateTime.of(1989, Month.JULY, 29, 12, 59);
+        this.itemDate = LocalDate.now();
+//        this.itemDate = LocalDate.of(1989, Month.JULY, 29);
         setIsNew(itemDate);
     }
 
-    public MenuItem(Category category, Double price, String description, LocalDateTime itemDate){
+    public MenuItem(Category category, Double price, String description, LocalDate itemDate){
         this();
         this.category = category;
         this.price = price;
         this.description = description;
 //        this.itemDate = LocalDateTime.of(1989, Month.JULY, 29, 12, 59);
-//        this.itemDate = LocalDateTime.now();
-
+//        this.itemDate = LocalDate.now();
         this.itemDate = itemDate;
         setIsNew(itemDate);
     }
@@ -75,24 +79,37 @@ public class MenuItem extends AbstractEntity {
     }
 
 
+//    public Boolean getIsNew() {
+//        return isNew;
+//    }
+//    private void setIsNew(LocalDateTime anItemDate) {
+//        Boolean itemIsNew = true;
+//        Duration d = Duration.between(anItemDate, LocalDateTime.now());
+//        Duration dWeek = Duration.between(LocalDateTime.now().minusDays(7), LocalDateTime.now());
+//        if (d.toDays() > dWeek.toDays()){
+//            itemIsNew = false;
+//        }
+//
+//        isNew = itemIsNew;
+//    }
     public Boolean getIsNew() {
         return isNew;
     }
-    private void setIsNew(LocalDateTime anItemDate) {
+    private void setIsNew(LocalDate anItemDate) {
         Boolean itemIsNew = true;
-        Duration d = Duration.between(anItemDate, LocalDateTime.now());
-        Duration dWeek = Duration.between(LocalDateTime.now().minusDays(7), LocalDateTime.now());
-        if (d.toDays() > dWeek.toDays()){
+//        Duration d = Duration.between(anItemDate, LocalDate.now());
+//        Duration dWeek = Duration.between(LocalDate.now().minusDays(7), LocalDate.now());
+        if (anItemDate.isBefore(LocalDate.now().minusDays(7))){
             itemIsNew = false;
         }
 
         isNew = itemIsNew;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return itemDate;
     }
-    public void setDate(LocalDateTime anItemDate) {
+    public void setDate(LocalDate anItemDate) {
         itemDate = anItemDate;
     }
 
