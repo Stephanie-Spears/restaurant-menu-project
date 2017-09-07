@@ -12,14 +12,6 @@ import java.time.Month;
 
 public class MenuItem extends AbstractEntity {
 
-
-//
-//    public Category category;
-//    public Double price;
-//    public String description;
-//    public LocalDateTime itemDate;
-//    public Boolean isNew;
-
     @NotNull
     private Category category;
 
@@ -45,7 +37,7 @@ public class MenuItem extends AbstractEntity {
         super();
         this.category = Category.APPETIZER;
         this.price = 0.00;
-        this.description = "Generic Item Description";
+        this.description = "";
 //        this.itemDate = LocalDateTime.now();
         this.itemDate = LocalDateTime.of(1989, Month.JULY, 29, 12, 59);
         setIsNew(itemDate);
@@ -57,9 +49,9 @@ public class MenuItem extends AbstractEntity {
         this.price = price;
         this.description = description;
 //        this.itemDate = LocalDateTime.of(1989, Month.JULY, 29, 12, 59);
-        this.itemDate = LocalDateTime.now();
+//        this.itemDate = LocalDateTime.now();
 
-//        this.itemDate = itemDate;
+        this.itemDate = itemDate;
         setIsNew(itemDate);
     }
 
