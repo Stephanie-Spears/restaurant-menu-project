@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+</head>
+<body class="container">
+    <nav th:replace="fragments :: navigation"></nav>
+    <h1 class="jumbotron" th:text="${title}">Default Index Title</h1>
+
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Item Date</th>
+            <th>Price</th>
+        </tr>
+
+        <tr th:each="menuItem : ${menuList}">
+            <td th:text="${menuItem.id}"></td>
+            <td th:text="${menuItem.category}"></td>
+            <td th:text="${menuItem.description}"></td>
+            <td th:text="${menuItem.itemDate}"></td>
+            <td th:text="${menuItem.price}"></td>
+            <!--<td><a th:href="@{'/cheese/edit/' + ${cheese.cheeseId}}">Edit</a></td>-->
+
+            <!--<td th:text="${cheese.type.name}"></td>-->
+        </tr>
+    </table>
+
+
+</body>
+</html>
