@@ -1,11 +1,10 @@
-package org.OrigamiOokami.restaurantmenuproject;
+package org.OrigamiOokami.restaurantmenuproject.models;
 
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.concurrent.atomic.AtomicInteger;
 
-public class MenuItem extends AbstractEntity{
+public class MenuItem extends AbstractEntity {
     enum Category {APPETIZER, MAIN_COURSE, DESSERT}
 
 //    private int id;

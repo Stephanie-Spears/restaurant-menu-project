@@ -1,4 +1,7 @@
-package org.OrigamiOokami.restaurantmenuproject;
+package org.OrigamiOokami.restaurantmenuproject.models;
+
+import org.OrigamiOokami.restaurantmenuproject.models.Menu;
+import org.OrigamiOokami.restaurantmenuproject.models.MenuItem;
 
 import java.time.LocalDateTime;
 import java.time.Month;
