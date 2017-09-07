@@ -40,6 +40,7 @@ public class MenuItem extends AbstractEntity {
     private Boolean isNew;
 
 
+    @NotNull
     public MenuItem(){
         super();
         this.category = Category.APPETIZER;
@@ -109,10 +110,10 @@ public class MenuItem extends AbstractEntity {
 
 //    @Override
 //    public int getId() {
-//        return id;
+//        return itemId;
 //    }
 //    public void setId(int newId){
-//        id = newId;
+//        itemId = newId;
 //    }
 
     @Override

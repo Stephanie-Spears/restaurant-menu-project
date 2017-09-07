@@ -20,8 +20,8 @@ import java.util.Date;
 
 /*
 * add datetime input in form field
-* remove item by id not working
-* id increments twice*/
+* id increments twice
+* */
 
 @Controller
 @RequestMapping(value = "menu")
@@ -41,7 +41,6 @@ public class MenuController {
         model.addAttribute("localDate", LocalDate.now());
 
         model.addAttribute("title", "Add Menu Item");
-//        model.addAttribute(MenuItem.Category.values());
         model.addAttribute(new MenuItem());
         return "menu/add";
     }
