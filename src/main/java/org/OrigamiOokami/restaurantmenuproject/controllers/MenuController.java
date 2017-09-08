@@ -1,8 +1,10 @@
 package org.OrigamiOokami.restaurantmenuproject.controllers;
 
 
+import org.OrigamiOokami.restaurantmenuproject.models.ItemCategory;
 import org.OrigamiOokami.restaurantmenuproject.models.Menu;
 import org.OrigamiOokami.restaurantmenuproject.models.MenuItem;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -11,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
 import java.time.LocalDate;
+
+import javax.validation.Valid;
 
 /*
 * add datetime input in form field
@@ -22,7 +25,7 @@ import java.time.LocalDate;
 
 @Controller
 @RequestMapping(value = "menu")
-class MenuController {
+public class MenuController {
 
     @RequestMapping(value = "")
     public String index(Model model){
@@ -38,18 +41,25 @@ class MenuController {
         model.addAttribute("localDate", LocalDate.now());
 
         model.addAttribute("title", "Add Menu Item");
-
-/* need to be able to discard id incrementation before it gets added to menuList if object isn't validated(currently updates id on page redirect)--which is what should be happening...must be calling abstract unintentionally each time?*/
         model.addAttribute(new MenuItem());
+        model.addAttribute("itemCategories", ItemCategory.values());
+
         return "menu/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddForm(@ModelAttribute @Valid MenuItem newItem, Errors errors, Model model) {
+    public String processAddForm(@ModelAttribute @Valid MenuItem newItem, Errors errors, Model model, @RequestParam("date")String sdate) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Menu Item");
             return "menu/add";
         }
+
+//        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(string);
+
+
+        newItem.setDate(sdate);
+
+
         Menu.add(newItem);
         return "redirect:";
     }

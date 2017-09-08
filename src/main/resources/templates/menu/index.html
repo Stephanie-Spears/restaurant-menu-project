@@ -15,10 +15,10 @@
             <th>Price</th>
             <th>Is New?</th>
         </tr>
-
+<!--even though these properties are private, thymeleaf is actually just calling their getters(), not the fields themselves-->
         <tr th:each="menuItem : ${menuList}">
             <td th:text="${menuItem.itemId}"></td>
-            <td th:text="${menuItem.category}"></td>
+            <td th:text="${menuItem.category.getName()}"></td>
             <td th:text="${menuItem.description}"></td>
             <td th:text="${menuItem.getDate()}"></td>
             <!--<td th:text="${menuItem.itemDate}"></td>-->

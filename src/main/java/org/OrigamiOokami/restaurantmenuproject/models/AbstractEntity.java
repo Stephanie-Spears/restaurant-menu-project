@@ -1,23 +1,27 @@
 package org.OrigamiOokami.restaurantmenuproject.models;
 
-abstract public class AbstractEntity {
+public abstract class AbstractEntity {
+    /*Consider using abstract classes if any of these statements apply to your situation:
+You want to share code among several closely related classes.
+You expect that classes that extend your abstract class have many common methods or fields, or require access modifiers other than public (such as protected and private).
+You want to declare non-static or non-final fields. This enables you to define methods that can access and modify the state of the object to which they belong.*/
 
-    public final int itemId;
-    protected enum Category {APPETIZER, MAIN_COURSE, DESSERT}
-
-
-    AbstractEntity() {
-            this.itemId = getNextId();
-        }
-
-    public int getId() {
-            return itemId;
-        }
-    private static int index = 0;
-
-    private static int getNextId() {
-            return ++index;
-        }
+//    public final int itemId;
+////    protected enum Category {APPETIZER, MAIN_COURSE, DESSERT}
+//
+//
+//    AbstractEntity() {
+//            this.itemId = getNextId();
+//        }
+//
+//    public int getId() {
+//            return itemId;
+//        }
+//    private static int index = 0;
+//
+//    private static int getNextId() {
+//            return ++index;
+//        }
 
 
 }

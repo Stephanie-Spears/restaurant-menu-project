@@ -17,3 +17,36 @@
 //          })
 //      })
 //  </script>
+
+
+//
+///**
+// * Parses the date from the string input.
+// * @param {Number|Date|string} date Teh value to be parsed.
+// * @param {Function|Date} [defaultValue] The default value to use if the date cannot be parsed.
+// * @returns {Date} The parsed date value. If the date is invalid or can't be parsed, then the defaultValue is returned.
+// */
+//function parseDate(date, defaultValue) {
+//  if (! date) return(getDefaultValue());
+//  if (typeof(date) === 'date') return(date);
+//  if (typeof(date) === 'number') return(new Date(date));
+//
+//  /**
+//   * Gets the default value.
+//   * @returns {Date}
+//   */
+//  function getDefaultValue() {
+//    return((typeof(defaultValue) === 'function') ? defaultValue(name) : defaultValue);
+//  }
+//
+//  var results;
+//  // YYYY-MM-DD
+//  if ((results = /(\d{4})[-\/\\](\d{1,2})[-\/\\](\d{1,2})/.exec(date))) {
+//    return(new Date(results[1], parseInt(results[2], 10)-1, results[3]) || new Date(date) || getDefaultValue());
+//  }
+//  // MM/DD/YYYY
+//  if ((results = /(\d{1,2})[-\/\\](\d{1,2})[-\/\\](\d{4})/.exec(date))) {
+//    date = new Date(results[3], parseInt(results[1], 10)-1, results[2]) || new Date(date) || getDefaultValue();
+//  }
+//  return(new Date(date) || getDefaultValue());
+//}
