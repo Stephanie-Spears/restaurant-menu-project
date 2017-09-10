@@ -6,7 +6,7 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <div>
-    <h2 th:text="${localDate}"></h2>
+    <h3 th:text="${localDate}"></h3>
 </div>
     <form method="post" th:object="${menuItem}">
 
@@ -15,18 +15,12 @@
             <input class="form-control" th:field="*{description}" />
             <span th:errors="*{description}" class="error text-danger"></span>
         </div>
+
         <div class="form-group has-success">
             <label class="control-label" th:for="price">Price</label>
             <input class="form-control" th:field="*{price}" />
             <span th:errors="*{price}" class="error text-danger"></span>
         </div>
-
-        <!--set onclick type method to use current time setter-->
-        <!--<div class="form-group has-success">-->
-        <!--<label th:for="itemDate">Item Date</label>-->
-        <!--<input type="date" class="form-control" th:field="${#dates.itemDate}"/>-->
-        <!--<span th:errors="${#dates.itemDate}" class="error text-danger"></span>-->
-        <!--</div>-->
 
         <div class="form-group">
             <label class="control-label" th:for="category">Item Category</label>
@@ -37,7 +31,6 @@
             </select>
             <span th:errors="*{category}" class="error text-danger"></span>
         </div>
-
 
         <div class="form-group">
             <label class="control-label" th:for="date">Item Date</label>

@@ -6,8 +6,8 @@
     <nav th:replace="fragments :: navigation"></nav>
     <form method="post">
         <div th:each="menuItem : ${menuList}" class="checkbox">
-            <input type="checkbox" name="itemIds" th:value="${menuItem.itemId}" th:id="${menuItem.itemId}"/>
-            <label th:for="${menuItem.itemId}" th:text="${menuItem.description}"></label>
+            <input type="checkbox" name="ids" th:value="${menuItem.id}" th:id="${menuItem.id}"/>
+            <label th:for="${menuItem.id}" th:text="${menuItem.description}"></label>
             <br />
         </div>
         <span th:text="*{errors}" class="error text-danger"></span>

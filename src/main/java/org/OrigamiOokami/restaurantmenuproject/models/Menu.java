@@ -41,7 +41,7 @@ public class Menu {
         MenuItem theItem = null;
 
         for (MenuItem candidateItem : menuList) {
-            if (candidateItem.getItemId() == itemId) {
+            if (candidateItem.getId() == itemId) {
                 theItem = candidateItem;
             }
         }

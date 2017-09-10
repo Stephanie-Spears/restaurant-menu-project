@@ -1,5 +1,7 @@
 package org.OrigamiOokami.restaurantmenuproject.models;
 
+import javax.validation.constraints.NotNull;
+
 public abstract class AbstractEntity {
     /*Consider using abstract classes if any of these statements apply to your situation:
 You want to share code among several closely related classes.
@@ -22,6 +24,21 @@ You want to declare non-static or non-final fields. This enables you to define m
 //    private static int getNextId() {
 //            return ++index;
 //        }
+
+    @NotNull
+    protected int id;
+    @NotNull
+    protected static int nextId = 0;
+    AbstractEntity(){
+        id = nextId;
+        nextId++;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 
 
 }
