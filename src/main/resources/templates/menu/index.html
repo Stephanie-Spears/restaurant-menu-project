@@ -18,7 +18,6 @@
         </tr>
 <!--even though these properties are private, thymeleaf is actually just calling their getters(), not the fields themselves-->
         <tr th:each="menuItem : ${menuList}">
-            <p th:text="${menuItem}"></p>
             <td th:text="${menuItem.id}"></td>
             <td th:text="${menuItem.category.getName()}"></td>
             <td th:text="${menuItem.description}"></td>

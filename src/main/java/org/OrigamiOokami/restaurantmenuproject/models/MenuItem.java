@@ -76,7 +76,7 @@ public class MenuItem extends AbstractEntity {
     public Boolean getIsNew() {
         return isNew;
     }
-    public void setIsNew(LocalDate date) {
+    private void setIsNew(LocalDate date) {
         Boolean itemIsNew = true;
         if (date.isBefore(LocalDate.now().minusDays(7))){
             itemIsNew = false;
